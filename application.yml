@@ -2,6 +2,8 @@ spring:
   h2:
     console:
       enabled: true
-
+  jpa:
+    hibernate:
+      ddl-auto: create
 server:
   port: 8081
