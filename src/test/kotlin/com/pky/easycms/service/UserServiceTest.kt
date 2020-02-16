@@ -11,6 +11,7 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
+import org.springframework.security.crypto.password.PasswordEncoder
 import java.util.*
 
 class UserServiceTest {
@@ -18,8 +19,12 @@ class UserServiceTest {
     @Mock
     private lateinit var userRepository: UserRepository;
 
+    @Mock
+    private lateinit var passwordEncoder: PasswordEncoder;
+
     @InjectMocks
     private lateinit var userService: UserService;
+
 
     @BeforeEach
     internal fun setUp() {
@@ -33,13 +38,14 @@ class UserServiceTest {
         val createdAt = Date()
         val userNo = 1
 
-        var signUp = SignUp(name, email, password);
+        var signUp = SignUp(name, email, password)
 
-        Mockito.`when`(userRepository.save(signUp.toEntity())).thenReturn(User(userNo, name, email, password,  createdAt));
-        val result = userService.signUp(signUp);
+        Mockito.`when`(passwordEncoder.encode(password)).thenReturn(password)
+        Mockito.`when`(userRepository.save(signUp.toEntity())).thenReturn(User(userNo, name, email, password, createdAt))
+        val result = userService.signUp(signUp)
 
-        assertEquals(userNo, result.userNo);
-        assertEquals(email, result.email);
-        assertEquals(createdAt, result.cratedAt);
+        assertEquals(userNo, result.userNo)
+        assertEquals(email, result.email)
+        assertEquals(createdAt, result.cratedAt)
     }
 }
