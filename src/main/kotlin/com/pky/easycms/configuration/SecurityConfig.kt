@@ -18,7 +18,10 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/sign-up", "/auth/sign-in").permitAll()
+                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
+                .and().headers().frameOptions().sameOrigin()
+
     }
 
     @Bean

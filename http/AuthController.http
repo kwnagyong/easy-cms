@@ -1,0 +1,20 @@
+POST http://{{url}}/auth/sign-up
+Content-Type: application/json
+
+{
+  "name": "이름",
+  "email": "pky1030@gmail.com",
+  "password": "1234"
+}
+
+###
+
+POST http://{{url}}/auth/sign-in
+Content-Type: application/json
+
+{
+  "email": "pky1030@gmail.com",
+  "password": "1234"
+}
+
+###
