@@ -18,3 +18,14 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://{{url}}/auth/test
+Content-Type: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyTm8iOjEsIm5hbWUiOiLsnbTrpoQiLCJlbWFpbCI6InBreTEwMzBAZ21haWwuY29tIn0.PADDj3IhZG7WmfPo8QJt4LcGsWs70HJZnamwKg48Kug
+
+{
+  "email": "pky1030@gmail.com",
+  "password": "1234"
+}
+
+###
