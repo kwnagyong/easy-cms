@@ -19,11 +19,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 class SecurityConfig(private val jwtAuthenticationProvider: JwtAuthenticationProvider) : WebSecurityConfigurerAdapter() {
     private val whitePatterns = arrayOf("/auth/sign-up", "/auth/sign-in")
+
     override fun configure(http: HttpSecurity) {
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/auth/sign-up", "/auth/sign-in").permitAll()
+                .antMatchers(HttpMethod.POST, *whitePatterns).permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated()
                 .and().headers().frameOptions().sameOrigin()
