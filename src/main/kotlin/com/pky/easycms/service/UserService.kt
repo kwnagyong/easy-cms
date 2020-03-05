@@ -15,7 +15,6 @@ class UserService(private val userRepository: UserRepository,
                   private val passwordEncoder: PasswordEncoder,
                   private val jwtService: JwtService) : UserDetailsService {
 
-
     fun signUp(signUp: SignUp): String {
         signUp.password = passwordEncoder.encode(signUp.password)
         return jwtService.createJwt(UserResult.fromEntity(userRepository.save(signUp.toEntity())))
