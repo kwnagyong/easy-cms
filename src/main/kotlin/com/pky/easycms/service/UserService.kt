@@ -1,6 +1,6 @@
 package com.pky.easycms.service
 
-import com.pky.easycms.UserRepository
+import com.pky.easycms.repository.UserRepository
 import com.pky.easycms.service.model.SignIn
 import com.pky.easycms.service.model.SignUp
 import com.pky.easycms.service.model.UserResult

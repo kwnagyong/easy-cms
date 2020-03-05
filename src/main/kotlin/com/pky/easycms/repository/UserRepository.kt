@@ -1,4 +1,4 @@
-package com.pky.easycms
+package com.pky.easycms.repository
 
 import com.pky.easycms.model.User
 import org.springframework.data.jpa.repository.JpaRepository

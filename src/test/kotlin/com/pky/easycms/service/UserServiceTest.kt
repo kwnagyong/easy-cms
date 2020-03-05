@@ -1,6 +1,6 @@
 package com.pky.easycms.service
 
-import com.pky.easycms.UserRepository
+import com.pky.easycms.repository.UserRepository
 import com.pky.easycms.model.User
 import com.pky.easycms.service.model.SignUp
 
@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
